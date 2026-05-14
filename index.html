@@ -40,7 +40,8 @@
     <div class="overlay"></div>
     
     <div style="position: absolute; bottom: 20px; right: 20px; color: white; padding: 10px 15px; border-radius: 8px; font-size: 0.9rem; max-width: 380px; z-index: 10; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
-      <div style="margin-bottom: 5px;"><sup>†</sup> Equal contribution.</div>
+      <div style="margin-bottom: 5px;"></div>
+      <!-- <sup>†</sup> Equal contribution. -->
       <div><sup>*</sup> Corresponding author.</div>
     </div>
   
@@ -49,20 +50,20 @@
       <div class="container is-size-5">
         <div class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item pl-4 pr-4" href="https://arxiv.org/abs/2508.08241" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
+            <a class="navbar-item pl-4 pr-4" href="" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
               <span class="icon" style="margin-right:5px;">
                 <i class="ai ai-arxiv"></i>
               </span>
               <span>arXiv</span>
             </a>
-            <a href="https://youtu.be/RS_MtKVIAzY" class="navbar-item pl-4 pr-4" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
+            <a href="" class="navbar-item pl-4 pr-4" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
               <span class="icon" style="margin-right:5px;">
                 <i class="fab fa-youtube"></i>
               </span>
               <span>Video</span>
             </a>
             <span class="navbar-item  pl-4 pr-4">
-              <a href="https://github.com/HybridRobotics/whole_body_tracking" class="button is-inverted is-large">
+              <!-- <a href="https://github.com/HybridRobotics/whole_body_tracking" class="button is-inverted is-large"> -->
                 <span class="icon">
                   <i class="fab fa-github"></i>
                 </span>
@@ -84,8 +85,8 @@
         Integrating Predictive Supervision and Sequence Modeling into Parkour Locomotion
       </h1>
       <p style="font-size: 1.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
-        <a href="">Yanheng Mai<sup>1,2,†</sup></a>,
-        <a href="">Wenhao Xu<sup>2,3,†</sup></a>,
+        <a href="">Yanheng Mai<sup>1,2</sup></a>,
+        <a href="">Wenhao Xu<sup>2,3</sup></a>,
         <a href="">Zirui Huang<sup>2,3</sup></a>,
         <a href="">Yifei Fu<sup>2,3</sup></a>,
         <a href="">Shengwei Dong<sup>2,3</sup></a>,<br>
@@ -121,7 +122,7 @@
         <h2 class="title is-2">Abstract</h2>
         <div class="content has-text-justified">
           <p class="abstract-text" style="font-size: 0.95rem; line-height: 1.5;">
-            Humanoid parkour requires locomotion policies to coordinate whole-body dynamics across rapidly changing terrains such as stairs, gaps, slopes, and obstacles. Existing reinforcement learning policies are largely reactive, mapping observations directly to actions without explicitly modeling future body states. This modeling process becomes critical in agile locomotion tasks where successful motion execution depends strongly on anticipating upcoming contact transitions and body dynamics.We present </strong>ParkourFormer<strong>, a Transformer-based sequence modeling framework that reformulates humanoid locomotion as a future-conditioned decision-making problem. The current robot state queries historical sensorimotor trajectories through cross-attention, while a lightweight prediction head forecasts short-horizon future proprioceptive states. The predicted future states are fused with temporal features to generate actions, enabling the policy to jointly reason over motion history and anticipated future dynamics. </strong>We evaluate ParkourFormer<strong> on a diverse multi-terrain humanoid parkour benchmark including stairs, gaps, slopes, rough terrain, and obstacle traversal. Experiments in simulation and on a real humanoid robot show that ParkourFormer consistently outperforms strong MLP and MoE baselines, achieving up to 42.53\% higher success rates while maintaining a single unified policy across all terrains. Our results suggest that explicit future-state modeling improves robustness and generalization for agile whole-body locomotion.
+            Humanoid parkour requires locomotion policies to coordinate whole-body dynamics across rapidly changing terrains such as stairs, gaps, slopes, and obstacles. Existing reinforcement learning policies are largely reactive, mapping observations directly to actions without explicitly modeling future body states. This modeling process becomes critical in agile locomotion tasks where successful motion execution depends strongly on anticipating upcoming contact transitions and body dynamics.We present <strong>ParkourFormer</strong>, a Transformer-based sequence modeling framework that reformulates humanoid locomotion as a future-conditioned decision-making problem. The current robot state queries historical sensorimotor trajectories through cross-attention, while a lightweight prediction head forecasts short-horizon future proprioceptive states. The predicted future states are fused with temporal features to generate actions, enabling the policy to jointly reason over motion history and anticipated future dynamics. We evaluate ParkourFormer on a diverse multi-terrain humanoid parkour benchmark including stairs, gaps, slopes, rough terrain, and obstacle traversal. Experiments in simulation and on a real humanoid robot show that ParkourFormer consistently outperforms strong MLP and MoE baselines, achieving up to <strong>42.53%</strong> higher success rates while maintaining a single unified policy across all terrains. Our results suggest that explicit future-state modeling improves robustness and generalization for agile whole-body locomotion.
           </p>
         </div>
       </div>
@@ -130,7 +131,7 @@
 </section>
 
 
-<section class="section">
+<!-- <section class="section">
   <div class="container">
     <h2 class="title is-2" style="text-align: center;">Our real robot experiments on various terrains and different levels of difficulties</h2>
     <div class="columns is-centered">
@@ -145,7 +146,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="section">
   <div class="container">
