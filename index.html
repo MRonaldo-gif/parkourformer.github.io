@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Integrating Predictive Supervision and Sequence Modeling into Parkour Locomotion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ParkourFormer</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero is-link is-fullheight video" style="overflow: hidden; position:relative;">
+    <div class="hero-video" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 101%; height: 101%;">
+      <video playsinline autoplay muted loop style="width: 100%; height: 100%; object-fit: cover;">
+        <source src=" ./static/videos/multi-terrian.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-video is-hidden-tablet is-inline-block-mobile"
+      style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 101%; height: 101%;">
+      <video playsinline autoplay muted loop style="width: 100%; height: 100%; object-fit: cover;">
+        <source src=" ./static/videos/multi-terrain.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="overlay"></div>
+    
+    <div style="position: absolute; bottom: 20px; right: 20px; color: white; padding: 10px 15px; border-radius: 8px; font-size: 0.9rem; max-width: 380px; z-index: 10; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
+      <div style="margin-bottom: 5px;"></div>
+      <!-- <sup>†</sup> Equal contribution. -->
+      <div><sup>*</sup> Corresponding author.</div>
+    </div>
+  
+  <div class="hero-head is-hidden-mobile">
+    <header class="navbar">
+      <div class="container is-size-5">
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item pl-4 pr-4" href="" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
+              <span class="icon" style="margin-right:5px;">
+                <i class="ai ai-arxiv"></i>
+              </span>
+              <span>arXiv</span>
+            </a>
+            <a href="" class="navbar-item pl-4 pr-4" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
+              <span class="icon" style="margin-right:5px;">
+                <i class="fab fa-youtube"></i>
+              </span>
+              <span>Video</span>
+            </a>
+            <span class="navbar-item  pl-4 pr-4">
+              <!-- <a href="https://github.com/HybridRobotics/whole_body_tracking" class="button is-inverted is-large"> -->
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code(Coming Soon)</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 6rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
+        ParkourFormer
+      </h1>
+      <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 3.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
+        Integrating Predictive Supervision and Sequence Modeling into Parkour Locomotion
+      </h1>
+      <p style="font-size: 1.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
+        <a href="">Yanheng Mai<sup>1,2</sup></a>,
+        <a href="">Wenhao Xu<sup>2,3</sup></a>,
+        <a href="">Zirui Huang<sup>2,3</sup></a>,
+        <a href="">Yifei Fu<sup>2,3</sup></a>,
+        <a href="">Shengwei Dong<sup>2,3</sup></a>,<br>
+        <a href="">Xinjue Wang<sup>2</sup></a>,
+        <a href="">Kailun Huang<sup>1,4</sup></a>,
+        <a href="">Yanzhe Xie<sup>1</sup></a>,
+        <a href="">Renjing Xu<sup>1,*</sup></a>
+      </p>
+      <p style="font-size: 1.1rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
+        <sup>1</sup>The Hong Kong University of Science and Technology (Guangzhou)&nbsp;&nbsp;
+        <sup>2</sup>CLAI-LAB, CL-TECH&nbsp;&nbsp;<br>
+        <sup>3</sup>South China Agricultural University
+        <sup>4</sup>Guangdong University of Technology
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<section class="section">
+  <div class="container">
+    <!-- <div class="columns is-centered">
+      <div class="column is-half">
+        <h2 class="title is-2">Video</h2>
+        <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+          <iframe src="https://www.youtube.com/embed/RS_MtKVIAzY"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+        </div>
+      </div> -->
+      <!-- <div class="column is-half"> -->
+        <!-- Institution Logos -->
+        <div class="institution-logos" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 32px; margin-bottom: 2rem;">
+          <img src="static/images/logo-hkustgz.png" alt="HKUST (Guangzhou)" style="height: 64px; object-fit: contain; background-color: #ffffff; padding: 4px; border-radius: 4px;">
+          <img src="static/images/logo-clailab.jpg" alt="CLAILAB, CL-TECH" style="height: 64px; object-fit: contain; background-color: #ffffff; padding: 4px; border-radius: 4px;">
+          <img src="static/images/logo-scau.jpg" alt="South China Agricultural University" style="height: 64px; object-fit: contain; background-color: #ffffff; padding: 4px; border-radius: 4px;">
+          <img src="static/images/logo-guanggong.jpg" alt="Guangdong University of Technology" style="height: 64px; object-fit: contain; background-color: #ffffff; padding: 4px; border-radius: 4px;">
+        </div>
+        <!-- Overview Figure -->
+        <figure style="margin: 0 0 2rem 0; text-align: center;">
+          <img src="static/images/overview.jpg" alt="ParkourFormer Overview" style="width: 100%; max-width: 960px; border-radius: 6px; box-shadow: 0 2px 12px rgba(0,0,0,0.12);">
+          <figcaption style="margin-top: 0.75rem; font-size: 0.88rem; color: #555; line-height: 1.6; max-width: 960px; display: inline-block; text-align: left;">
+            <strong>Figure 1. ParkourFormer enables robust humanoid parkour across diverse real-world terrains.</strong>
+            Our Transformer-based future-conditioned policy achieves stable locomotion and smooth gait transitions over stairs, platforms, gaps, and uneven obstacles, while demonstrating strong adaptability to unseen environments.
+          </figcaption>
+        </figure>
+        <div class="column is-full-width is-centered has-text-centered">
+          <video autoplay loop muted playsinline src="./static/videos/parkourformer-homepage.mp4" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+        </div>
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+          <p class="abstract-text" style="font-size: 0.95rem; line-height: 1.5;">
+            Humanoid parkour requires locomotion policies to coordinate whole-body dynamics across rapidly changing terrains such as stairs, gaps, slopes, and obstacles. Existing reinforcement learning policies are largely reactive, mapping observations directly to actions without explicitly modeling future body states. Such modeling becomes critical in agile locomotion tasks where successful motion execution depends strongly on anticipating upcoming contact transitions and body dynamics.We present <strong>ParkourFormer</strong>, a Transformer-based sequence modeling framework that reformulates humanoid locomotion as a future-conditioned decision-making problem. The current robot state queries historical sensorimotor trajectories through cross-attention, while a lightweight prediction head forecasts short-horizon future proprioceptive states. The predicted future states, trained with supervised signals, are fused with temporal features to generate actions, enabling the policy to jointly reason over motion history and anticipated future dynamics. We evaluate ParkourFormer on a diverse multi-terrain humanoid parkour benchmark including stairs, gaps, slopes, rough terrain, and obstacle traversal. Experiments in simulation and on a real humanoid robot show that ParkourFormer achieves a <strong>93.85%</strong> average traversal success rate on highly challenging terrains, with improvements of up to <strong>42.73%</strong> over strong MLP, MoE-based MLP, and vanilla Transformer baselines, while maintaining a single unified policy across all terrain types. These results demonstrate that explicit future-state modeling significantly improves robustness and generalization for agile whole-body locomotion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-2" style="text-align: center;">Our real robot experiments on various terrains and different levels of difficulties</h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/parkourformer/IMG_4075.mov" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+      <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/parkourformer/IMG_4070.mov" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+        <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/parkourformer/IMG_4053.mov" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+    </div><br>
+    <div class="columns is-centered">
+      <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/parkourformer/IMG_4064.mov" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+      <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/parkourformer/IMG_0616.mov" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+        <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/parkourformer/IMG_0619.mov" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-2" style="text-align: center;">Simulation experiments on various terrains</h2>
+    <p class="has-text-centered" style="font-size: 1.2rem; margin-bottom: 2rem;">
+      Below are the highest terrian levels of difficulties <strong>(L9)</strong> in simulation, the training environment includes 9 different terrains and 9 levels of difficulties <strong>(L1-9)</strong>.
+    </p>
+    <div class="columns is-centered">
+      <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/simulation/boxes.mp4" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+      <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/simulation/climbing.mp4" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+        <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/simulation/downstairs.mp4" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+    </div><br>
+    <div class="columns is-centered">
+      <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/simulation/square_gaps.mp4" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+      <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/simulation/squareboxes.mp4" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+        <div class="column is-full-width is-centered has-text-centered">
+        <video autoplay loop muted playsinline src="./static/videos/simulation/upstairs.mp4" poster="./static/videos/loading-icon.gif" style="border: 1px solid #bbb; border-radius: 10px; margin: 1.0%;"></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>Page template borrowed from <a href="https://nerfies.github.io/"><span class="dnerf">Nerfies</span></a>, <a href="https://umi-on-legs.github.io/">UMI on Legs</a>, <a href="https://beyondmimic.github.io/">BeyondMimic</a>.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
