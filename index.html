@@ -41,8 +41,8 @@
     
     <div style="position: absolute; bottom: 20px; right: 20px; color: white; padding: 10px 15px; border-radius: 8px; font-size: 0.9rem; max-width: 380px; z-index: 10; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
       <div style="margin-bottom: 5px;"></div>
-      <!-- <sup>†</sup> Equal contribution. -->
-      <div><sup>*</sup> Corresponding author.</div>
+      <sup>*</sup> Equal contribution.
+      <div><sup>†</sup> Corresponding author.</div>
     </div>
   
   <div class="hero-head is-hidden-mobile">
@@ -86,21 +86,20 @@
         Integrating Predictive Supervision and Sequence Modeling into Parkour Locomotion
       </h1>
       <p style="font-size: 1.5rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
-        <a href="">Yanheng Mai<sup>1,2</sup></a>,
-        <a href="">Wenhao Xu<sup>2,3</sup></a>,
-        <a href="">Zirui Huang<sup>2,3</sup></a>,
-        <a href="">Yifei Fu<sup>2,3</sup></a>,
-        <a href="">Shengwei Dong<sup>2,3</sup></a>,<br>
+        <a href="">Yanheng Mai<sup>1,2,*</sup></a>,
+        <a href="">Wenhao Xu<sup>2,*</sup></a>,
+        <a href="">Zirui Huang<sup>2,*</sup></a>,
+        <a href="">Kailun Huang<sup>1,*</sup></a>,
+        <a href="">Yifei Fu<sup>2</sup></a>,<br>
+        <a href="">Shengwei Dong<sup>2</sup></a>,
         <a href="">Xinjue Wang<sup>2</sup></a>,
-        <a href="">Kailun Huang<sup>1,4</sup></a>,
-        <a href="">Yanzhe Xie<sup>1</sup></a>,
-        <a href="">Renjing Xu<sup>1,*</sup></a>
+        <a href="">Renjing Xu<sup>1,†</sup></a>
       </p>
       <p style="font-size: 1.1rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">
         <sup>1</sup>The Hong Kong University of Science and Technology (Guangzhou)&nbsp;&nbsp;
-        <sup>2</sup>CLAI-LAB, CL-TECH&nbsp;&nbsp;<br>
-        <sup>3</sup>South China Agricultural University
-        <sup>4</sup>Guangdong University of Technology
+        <sup>2</sup>CLAI-LAB&nbsp;&nbsp;<br>
+        <!-- <sup>3</sup>South China Agricultural University
+        <sup>4</sup>Guangdong University of Technology -->
       </p>
     </div>
   </div>
@@ -125,8 +124,8 @@
         <div class="institution-logos" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 32px; margin-bottom: 2rem;">
           <img src="static/images/logo-hkustgz.png" alt="HKUST (Guangzhou)" style="height: 64px; object-fit: contain; background-color: #ffffff; padding: 4px; border-radius: 4px;">
           <img src="static/images/logo-clailab.jpg" alt="CLAILAB, CL-TECH" style="height: 64px; object-fit: contain; background-color: #ffffff; padding: 4px; border-radius: 4px;">
-          <img src="static/images/logo-scau.jpg" alt="South China Agricultural University" style="height: 64px; object-fit: contain; background-color: #ffffff; padding: 4px; border-radius: 4px;">
-          <img src="static/images/logo-guanggong.jpg" alt="Guangdong University of Technology" style="height: 64px; object-fit: contain; background-color: #ffffff; padding: 4px; border-radius: 4px;">
+          <!-- <img src="static/images/logo-scau.jpg" alt="South China Agricultural University" style="height: 64px; object-fit: contain; background-color: #ffffff; padding: 4px; border-radius: 4px;"> -->
+          <!-- <img src="static/images/logo-guanggong.jpg" alt="Guangdong University of Technology" style="height: 64px; object-fit: contain; background-color: #ffffff; padding: 4px; border-radius: 4px;"> -->
         </div>
         <!-- Overview Figure -->
         <figure style="margin: 0 0 2rem 0; text-align: center;">
@@ -142,7 +141,7 @@
         <h2 class="title is-2">Abstract</h2>
         <div class="content has-text-justified">
           <p class="abstract-text" style="font-size: 0.95rem; line-height: 1.5;">
-            Humanoid parkour requires locomotion policies to coordinate whole-body dynamics across rapidly changing terrains such as stairs, gaps, slopes, and obstacles. Existing reinforcement learning policies are largely reactive, mapping observations directly to actions without explicitly modeling future body states. Such modeling becomes critical in agile locomotion tasks where successful motion execution depends strongly on anticipating upcoming contact transitions and body dynamics.We present <strong>ParkourFormer</strong>, a Transformer-based sequence modeling framework that reformulates humanoid locomotion as a future-conditioned decision-making problem. The current robot state queries historical sensorimotor trajectories through cross-attention, while a lightweight prediction head forecasts short-horizon future proprioceptive states. The predicted future states, trained with supervised signals, are fused with temporal features to generate actions, enabling the policy to jointly reason over motion history and anticipated future dynamics. We evaluate ParkourFormer on a diverse multi-terrain humanoid parkour benchmark including stairs, gaps, slopes, rough terrain, and obstacle traversal. Experiments in simulation and on a real humanoid robot show that ParkourFormer achieves a <strong>93.85%</strong> average traversal success rate on highly challenging terrains, with improvements of up to <strong>47.12%</strong> over strong MLP, MoE-based MLP, and vanilla Transformer baselines, while maintaining a single unified policy across all terrain types. These results demonstrate that explicit future-state modeling significantly improves robustness and generalization for agile whole-body locomotion.
+          Humanoid parkour requires locomotion policies to coordinate whole-body dynamics across rapidly changing terrains such as stairs, gaps, slopes, and obstacles. Existing learning-based humanoid locomotion policies typically infer actions from current and historical observations, while the future evolution of the robot state is represented only implicitly. Explicitly anticipating short-horizon state evolution is particularly beneficial for multiple terrains locomotion, where current actions must account for upcoming contact transitions and whole-body dynamics. We present <strong>ParkourFormer</strong>, a Transformer-based sequence modeling framework that reformulates humanoid locomotion as a future-conditioned decision-making problem. The current robot state queries historical sensorimotor trajectories through cross-attention, while a lightweight prediction head forecasts short-horizon future proprioceptive states. The future states are predicted solely from historical observations and actions, with ground-truth future states used only as supervision targets, and are fused with temporal features to generate the current action without future-information leakage. We evaluate ParkourFormer on a diverse multi-terrain humanoid parkour benchmark including stairs, gaps, slopes, rough terrain, and obstacle traversal. ParkourFormer achieves a <strong>93.96%</strong> mean traversal success rate, compared with <strong>90.49%</strong> for a vanilla Transformer and <strong>87.16%</strong> for a MoE-MLP policy, while maintaining a single policy across all terrain types. These results demonstrate that explicit future-state modeling significantly improves robustness and generalization for agile whole-body locomotion.
           </p>
         </div>
       </div>
